@@ -6,7 +6,7 @@
         {
             StreamReader reader = new StreamReader("../../../The Orthodox Study Bible.txt");
             string response = "";
-            foreach (char c in message)
+            foreach (char c in message) 
             {
                 response += GetFileCoords(RandomNumber(), c, reader) + "-";
             }
@@ -20,16 +20,16 @@
 
             for (int i = 0; i < line; i++)
             {
-                if (reader.ReadLine() == null) return "NotFound";
+                reader.ReadLine();
             }
             while (true)
             {
                 string aux = reader.ReadLine();
-                if (aux == null) return "NotFound";
+                
 
-                if (aux.Contains(c))
+                if (aux.Contains(c)) //verificam daca caracterul care ne intereseaza exista
                 {
-                    int col = aux.IndexOf(c);
+                    int col = aux.IndexOf(c); //salvam a 2-a coordonata a caracterului
                     return line.ToString() + "_" + col.ToString();
                 }
                 line++;
